@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>TictacToe</title>
+</head>
+
+<body>
+    <style>
+        button {
+            width: 100%;
+            height: 100%;
+        }
+
+        .row {
+            height: 5vw;
+            margin: 30px;
+        }
+
+        hr {
+            margin-top: 30px;
+            border-style: none;
+            border-top-style: dotted;
+
+            border-width: 10px;
+            border-color: grey;
+
+        }
+        body{
+            overflow: hidden;
+        }
+    </style>
+
+    <script>
+        var player1 = true;
+        var player2 = false;
+        var c = 0;
+
+
+        function iswin() {
+
+            if (document.getElementById('one').innerHTML == document.getElementById('two').innerHTML) {
+                if (document.getElementById('two').innerHTML == document.getElementById('three').innerHTML) {
+                    if (document.getElementById('three').innerHTML == 'X') {
+                        console.log('PLAYER 1 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 1 WINS';
+                    }
+                    if (document.getElementById('three').innerHTML == 'O') {
+                        console.log('PLAYER 2 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 2 WINS';
+                    }
+                }
+            }
+            if (document.getElementById('four').innerHTML == document.getElementById('five').innerHTML) {
+                if (document.getElementById('five').innerHTML == document.getElementById('six').innerHTML) {
+                    if (document.getElementById('six').innerHTML == 'X') {
+                        console.log('PLAYER 1 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 1 WINS';
+                    }
+                    if (document.getElementById('six').innerHTML == 'O') {
+                        console.log('PLAYER 2 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 2 WINS';
+                    }
+                }
+            }
+            if (document.getElementById('seven').innerHTML == document.getElementById('eight').innerHTML) {
+                if (document.getElementById('eight').innerHTML == document.getElementById('nine').innerHTML) {
+                    if (document.getElementById('nine').innerHTML == 'X') {
+                        console.log('PLAYER 1 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 1 WINS';
+                    }
+                    if (document.getElementById('nine').innerHTML == 'O') {
+                        console.log('PLAYER 2 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 2 WINS';
+                    }
+                }
+            }
+            // horizontal cases completed
+            if (document.getElementById('one').innerHTML == document.getElementById('four').innerHTML) {
+                if (document.getElementById('four').innerHTML == document.getElementById('seven').innerHTML) {
+                    if (document.getElementById('seven').innerHTML == 'X') {
+                        console.log('PLAYER 1 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 1 WINS';
+                    }
+                    if (document.getElementById('seven').innerHTML == 'O') {
+                        console.log('PLAYER 2 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 2 WINS';
+                    }
+                }
+            }
+            if (document.getElementById('two').innerHTML == document.getElementById('five').innerHTML) {
+                if (document.getElementById('five').innerHTML == document.getElementById('eight').innerHTML) {
+                    if (document.getElementById('eight').innerHTML == 'X') {
+                        console.log('PLAYER 1 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 1 WINS';
+                    }
+                    if (document.getElementById('eight').innerHTML == 'O') {
+                        console.log('PLAYER 2 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 2 WINS';
+                    }
+                }
+            }
+            if (document.getElementById('three').innerHTML == document.getElementById('six').innerHTML) {
+                if (document.getElementById('six').innerHTML == document.getElementById('nine').innerHTML) {
+                    if (document.getElementById('nine').innerHTML == 'X') {
+                        console.log('PLAYER 1 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 1 WINS';
+                    }
+                    if (document.getElementById('nine').innerHTML == 'O') {
+                        console.log('PLAYER 2 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 2 WINS';
+                    }
+                }
+            }
+            // vertical cases completed
+            if (document.getElementById('one').innerHTML == document.getElementById('five').innerHTML) {
+                if (document.getElementById('five').innerHTML == document.getElementById('nine').innerHTML) {
+                    if (document.getElementById('nine').innerHTML == 'X') {
+                        console.log('PLAYER 1 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 1 WINS';
+                    }
+                    if (document.getElementById('nine').innerHTML == 'O') {
+                        console.log('PLAYER 2 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 2 WINS';
+                    }
+                }
+            }
+            if (document.getElementById('three').innerHTML == document.getElementById('five').innerHTML) {
+                if (document.getElementById('five').innerHTML == document.getElementById('seven').innerHTML) {
+                    if (document.getElementById('seven').innerHTML == 'X') {
+                        console.log('PLAYER 1 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 1 WINS';
+                    }
+                    if (document.getElementById('seven').innerHTML == 'O') {
+                        console.log('PLAYER 2 WINS')
+                        document.getElementById('res').innerHTML = 'PLAYER 2 WINS';
+                    }
+                }
+            }
+        }
+
+
+        function TictacToe(btn) {
+            document.getElementById(btn.id).disabled = true;
+            document.getElementById('player1').disabled = true;
+            document.getElementById('player2').disabled = true;
+
+
+            if (player1 == true) {
+
+
+                document.getElementById(btn.id).innerHTML = 'X';
+
+
+                document.getElementById('player2').style.backgroundColor = 'Green';
+                document.getElementById('player2').style.color = 'White';
+                document.getElementById('player1').style.backgroundColor = 'White';
+                document.getElementById('player1').style.color = '#FFC107';
+
+
+                player1 = false;
+                player2 = true;
+                c += 1;
+                if (c == 9) {
+                    document.getElementById('res').innerHTML = 'DRAW';
+
+                }
+                return
+            }
+            if (player2 == true) {
+
+                document.getElementById(btn.id).innerHTML = 'O';
+
+                document.getElementById('player2').style.backgroundColor = 'White';
+                document.getElementById('player2').style.color = '#198754';
+                document.getElementById('player1').style.backgroundColor = '#FFC107'
+                document.getElementById('player1').style.color = 'White';
+
+
+
+                player1 = true;
+                player2 = false;
+                c += 1;
+
+                if (c == 9) {
+                    document.getElementById('res').innerHTML = 'DRAW';
+
+                }
+                return
+            }
+
+        }
+    </script>
+
+
+    <h1 style="text-align:center ;"> TIC-TAC-TOE</h1>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id="one" onclick="TictacToe(this)"></button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id='two' onclick="TictacToe(this)"></button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id="three" onclick="TictacToe(this)"></button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id="four" onclick="TictacToe(this)"></button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id="five" onclick="TictacToe(this)"></button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id="six" onclick="TictacToe(this)"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id="seven" onclick="TictacToe(this)"></button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id="eight" onclick="TictacToe(this)"></button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-outline-secondary btn-lg" id="nine" onclick="TictacToe(this)"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-outline-success btn-lg" onclick="iswin()">MANUAL CHECK WIN</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-3 ">
+                <button class="btn btn-outline-warning btn-lg" id="player1">PLAYER 1</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-outline-success btn-lg" id="player2">PLAYER 2</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-lg" id="res" style="background-color: green ; color: white;"
+                    onClick="history.go(0);">Click To Refresh</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
